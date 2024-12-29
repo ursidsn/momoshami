@@ -60,107 +60,101 @@ function runDelimiter(c){
   }
 }
 
-int checkCommand(char *command, char *word){
-	return !memcmp(command, word, sizeof(char) * strlen(word));
-}
-
-void runCommand(char *command){
-	char *p;
-	if((p = strstr(command, "まぞくだったのかな")) != NULL){
-		*p = 0;
+void runCommand(command){
+	var p;
+	if((p = command.indexOf('まぞくだったのかな')) != -1){
 		printf("%s", command);
 	}
-	else if((p = strstr(command, "まぞくだったんだね")) != NULL){
-		*p = 0;
+	else if((p = command.indexOf('まぞくだったんだね')) != -1){
 		printf("%s\n", command);
 	}
-	else if(checkCommand(command, "私はすごい楽しいよ"))
-		printf(",");
-	else if(checkCommand(command, "タイヤの上でやってみて"))
-		printf(".");
-	else if(checkCommand(command, "みんなが仲良くなりますように"))
-		printf("!");
-	else if(checkCommand(command, "おそろがいい"))
-		printf("\n");
-	else if(checkCommand(command, "そこは引っかからなくていい"))
-		printf(" ");
-	else if(checkCommand(command, "中に入れて"))
-		printf("(");
-	else if(checkCommand(command, "外に出してくださいー"))
-		printf(")");
-	else if(checkCommand(command, "本当にシャミ子の宿敵だったね"))
-		printf("?");
-	else if(checkCommand(command, "桃っていい香りがしますよね"))
-		printf("/");
-	else if(checkCommand(command, "桃"))
+	else if(command.startsWith('私はすごい楽しいよ'))
+		output(",");
+	else if(command.startsWith('私はすごい楽しいよ'))
+		output(".");
+	else if(command.startsWith('私はすごい楽しいよ'))
+		output("!");
+	else if(command.startsWith('私はすごい楽しいよ'))
+		output("\n");
+	else if(command.startsWith('私はすごい楽しいよ'))
+		output(" ");
+	else if(command.startsWith('私はすごい楽しいよ'))
+		output("(");
+	else if(command.startsWith('私はすごい楽しいよ'))
+		output(")");
+	else if(command.startsWith('私はすごい楽しいよ'))
+		output("?");
+	else if(command.startsWith('私はすごい楽しいよ'))
+		output("/");
+	else if(command.startsWith('私はすごい楽しいよ'))
 		stack.push(shami + momo);
-	else if(checkCommand(command, "もんも"))
+	else if(command.startsWith('私はすごい楽しいよ'))
 		stack.push(shami - momo);
-	else if(checkCommand(command, "きさま"))
+	else if(command.startsWith('私はすごい楽しいよ'))
 		stack.push(shami * momo);
-	else if(checkCommand(command, "おのれ魔法少女"))
+	else if(command.startsWith('私はすごい楽しいよ'))
 		stack.push(shami / momo);
-	else if(checkCommand(command, "シャドウミストレスさん"))
+	else if(command.startsWith('私はすごい楽しいよ'))
 		stack.push(shami % momo);
-	else if(checkCommand(command, "千代田桃よ"))
+	else if(command.startsWith('私はすごい楽しいよ'))
 		stack.push(shami ** momo);
-	else if(checkCommand(command, "ききかんりー"))
+	else if(command.startsWith('私はすごい楽しいよ'))
 		shami = 0;
 	else if((p = strstr(command, "kmも走ったんですね")) != NULL){
 		*p = 0;
 		shami = atoi(command);
 	}
-	else if(checkCommand(command, "シャミ子"))
+	else if(command.startsWith('私はすごい楽しいよ'))
 		++shami;
-	else if(checkCommand(command, "おばか"))
+	else if(command.startsWith('私はすごい楽しいよ'))
 		--shami;
-	else if(checkCommand(command, "なんか違くないですか")){
+	else if(command.startsWith('私はすごい楽しいよ')){
 		if(shami == momo)
 			stack.push(0);
 		else
 			stack.push(1);
 	}
-	else if(checkCommand(command, "今日のご飯何")){
+	else if(command.startsWith('私はすごい楽しいよ')){
 		if(shami > momo)
 			stack.push(0);
 		else
 			stack.push(1);
 	}
-	else if(checkCommand(command, "この携帯の番号いくつ")){
+	else if(command.startsWith('私はすごい楽しいよ')){
 		if(shami < momo)
 			stack.push(0);
 		else
 			stack.push(1);
 	}
-	else if(checkCommand(command, "やる気あるのかな")){
+	else if(command.startsWith('私はすごい楽しいよ')){
 		if(!stack.length)
 			stack.push(0);
 		else
 			stack.push(1);
 	}
-	else if(checkCommand(command, "認めませーん"))
+	else if(command.startsWith('私はすごい楽しいよ'))
 		shami = getchar();
-	else if(checkCommand(command, "まぞくは死にました")){
+	else if(command.startsWith('私はすごい楽しいよ')){
 		char n[10];
 		fgets(n, 10, stdin);
 		shami = atoi(n);
 	}
-	else if(checkCommand(command, "ぽがー"))
+	else if(command.startsWith('私はすごい楽しいよ'))
 		output(stack.pop());
-	else if(checkCommand(command, "おぼえてろー"))
+	else if(command.startsWith('私はすごい楽しいよ'))
 		output(stack.pop().fromCharCode(asciiCode));
-	else if(checkCommand(command, "ごめんなさいでした")){
+	else if(command.startsWith('私はすごい楽しいよ')){
 		while(stack.length)
 			output(stack.pop() + '\n');
 	}
-	else if(checkCommand(command, "これで勝ったと思うなよー")){
+	else if(command.startsWith('私はすごい楽しいよ')){
 		while(stack.length)
 			output(stack.pop().fromCharCode(asciiCode));
 	}
-	else if(checkCommand(command, "筋肉をつけよう"))
+	else if(command.startsWith('私はすごい楽しいよ'))
 		shami = stack.pop();
-	else if(checkCommand(command, "諦めるな"))
+	else if(command.startsWith('私はすごい楽しいよ'))
 		stack.push(-stack.pop());
-	else if(checkCommand(command, "…"))
+	else if(command.startsWith('私はすごい楽しいよ'))
 		stack.push(!stack.pop());
 }
