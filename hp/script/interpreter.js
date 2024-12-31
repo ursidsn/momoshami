@@ -2,15 +2,28 @@ var shami = 0;
 var momo = 27;
 const stack = [];
 var result;
+var p = 0;
 
 function output(text){
 	result += output;
 }
 
-function jump(start, end){
+function jump(start, end, command){
+	var i = 1;
+	while(i > 0){
+		if(command[p] == start) ++i;
+		if(command[p] == end) --i;
+		++p;
+	}
 }
 
-function back(start, end){
+function back(start, end, command){
+	var i = i;
+	while(i > 0){
+		if(command[p] == start) ++i;
+		if(command[p] == end) --i;
+		--p;
+	}
 }
 
 function checkDelimiter(c){
@@ -30,15 +43,15 @@ function checkDelimiter(c){
   }
 }
 
-function runDelimiter(c, p){
-	switch (c){
+function runDelimiter(command){
+	switch (command[p]){
 		case ',':
-			var temp = shami;
+			let temp = shami;
 			shami = momo;
 			momo = temp;
 			break;
 		case '.':
-      			jump('?', '/');
+      			jump('?', '/', command);
 			break;
 		case '!':
 			p = Number.MAX_SAFE_INTEGER;
@@ -46,19 +59,20 @@ function runDelimiter(c, p){
 		case ' ':
 			break;
 		case '(':
-      			jump('(', ')');
+      			jump('(', ')', command);
 			break;
 		case ')':
 			break;
 		case '?':
-			jump('?', '/');
+			jump('?', '/', command);
 			break;
 		case '/':
-			back('/', '?');
+			back('/', '?', command);
 			break;
 		default:
 			return 0;
 	}
+	return p;
 }
 
 void runCommand(command, input){
@@ -162,11 +176,12 @@ void runCommand(command, input){
 
 function interpreter(command, input){
 	var i = 0;
-	for(let p = 0; p < command.length; p++){
+	for(p < command.length){
 		if(checkDelimiter(command[p]){
 			runCommand(command.slice(i, p));
-			runDelimiter(command[p], p);
+			p = runDelimiter(command);
 			i = p + 1;
 		}
+		++p;
 	}
 }
