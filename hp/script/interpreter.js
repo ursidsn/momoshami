@@ -2,10 +2,9 @@ var shami = 0;
 var momo = 27;
 const stack = [];
 var result;
-var p = 0;
 
 function output(text){
-  result += output;
+	result += output;
 }
 
 function jump(start, end){
@@ -31,43 +30,44 @@ function checkDelimiter(c){
   }
 }
 
-function runDelimiter(c){
-  switch (c){
-    case ',':
-      var temp = shami;
-      shami = momo;
-      momo = temp;
-      break;
+function runDelimiter(c, p){
+	switch (c){
+		case ',':
+			var temp = shami;
+			shami = momo;
+			momo = temp;
+			break;
 		case '.':
-      jump('?', '/');
-      break;
+      			jump('?', '/');
+			break;
 		case '!':
+			p = Number.MAX_SAFE_INTEGER;
 		case '\n':
 		case ' ':
-      break;
+			break;
 		case '(':
-      jump('(', ')');
-      break;
+      			jump('(', ')');
+			break;
 		case ')':
-      break;
+			break;
 		case '?':
-      jump('?', '/');
-      break;
+			jump('?', '/');
+			break;
 		case '/':
 			back('/', '?');
-      break;
+			break;
 		default:
 			return 0;
-  }
+	}
 }
 
-void runCommand(command){
-	var p;
-	if((p = command.indexOf('まぞくだったのかな')) != -1){
+void runCommand(command, input){
+	var c;
+	if((c = command.indexOf('まぞくだったのかな')) != -1){
 		output(command.slice(0, c));
 	}
-	else if((p = command.indexOf('まぞくだったんだね')) != -1){
-		output(command.slice(0, 1) + '\n');
+	else if((c = command.indexOf('まぞくだったんだね')) != -1){
+		output(command.slice(0, c) + '\n');
 	}
 	else if(command.startsWith('私はすごい楽しいよ'))
 		output(",");
@@ -101,8 +101,9 @@ void runCommand(command){
 		stack.push(shami ** momo);
 	else if(command.startsWith('ききかんりー'))
 		shami = 0;
-	else if((p = command.indexOf('kmも走ったんですね')) != -1){
-		shami = atoi(command);
+	else if((c = command.indexOf('kmも走ったんですね')) != -1){
+		if(isNaN(let n = Number(command.slice(0, c)))
+			shami = n;
 	}
 	else if(command.startsWith('シャミ子'))
 		++shami;
@@ -160,11 +161,12 @@ void runCommand(command){
 }
 
 function interpreter(command, input){
-	int i = 0;
-	while(p < command.length){
+	var i = 0;
+	for(let p = 0; p < command.length; p++){
 		if(checkDelimiter(command[p]){
-			runCommand();
-			runDelimiter(command[p]) 
-		}else p++;
+			runCommand(command.slice(i, p));
+			runDelimiter(command[p], p);
+			i = p + 1;
+		}
 	}
 }
