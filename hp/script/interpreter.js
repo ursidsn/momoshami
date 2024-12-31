@@ -2,6 +2,7 @@ var shami = 0;
 var momo = 27;
 const stack = [];
 var result;
+var p = 0;
 
 function output(text){
   result += output;
@@ -15,18 +16,18 @@ function back(start, end){
 
 function checkDelimiter(c){
   switch (c){
-    case ',':
-		case '.':
-		case '!':
-		case '\n':
-		case ' ':
-		case '(':
-		case ')':
-		case '?':
-		case '/':
-			return c;
-		default:
-			return 0;
+    	case ',':
+	case '.':
+	case '!':
+	case '\n':
+	case ' ':
+	case '(':
+	case ')':
+	case '?':
+	case '/':
+		return c;
+	default:
+		return 0;
   }
 }
 
@@ -101,7 +102,6 @@ void runCommand(command){
 	else if(command.startsWith('ききかんりー'))
 		shami = 0;
 	else if((p = command.indexOf('kmも走ったんですね')) != -1){
-		*p = 0;
 		shami = atoi(command);
 	}
 	else if(command.startsWith('シャミ子'))
@@ -157,4 +157,14 @@ void runCommand(command){
 		stack.push(-stack.pop());
 	else if(command.startsWith('…'))
 		stack.push(!stack.pop());
+}
+
+function interpreter(command, input){
+	int i = 0;
+	while(p < command.length){
+		if(checkDelimiter(command[p]){
+			runCommand();
+			runDelimiter(command[p]) 
+		}else p++;
+	}
 }
