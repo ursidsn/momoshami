@@ -174,7 +174,7 @@ void runCommand(command, input){
 		stack.push(!stack.pop());
 }
 
-function interpreter(command, input){
+export default function interpreter(command, input){
 	var i = 0;
 	for(p < command.length){
 		if(checkDelimiter(command[p]){
