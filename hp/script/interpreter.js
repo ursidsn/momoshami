@@ -1,3 +1,4 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/encoding-japanese/2.0.0/encoding.min.js"></scrpt>
 var shami = 0;
 var momo = 27;
 const stack = [];
@@ -176,9 +177,13 @@ void runCommand(command, input){
 
 export default function interpreter(command, input){
 	var i = 0;
+	var char_input = Encoding.convert(txt, {
+		to: 'SJIS',
+		from: 'UTF8'
+	});
 	for(p < command.length){
 		if(checkDelimiter(command[p]){
-			runCommand(command.slice(i, p));
+			runCommand(command.slice(i, p), char_input);
 			p = runDelimiter(command);
 			i = p + 1;
 		}
