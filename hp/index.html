@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
 
+<head>
+  <meta charset="UTF-8">
+  <title>momoshami-まちカドまぞくのプログラミング言語</title>
+  <script src="scripts/main.js"></script>
+  <link rel="preload" href="scripts/interpreter.js" as="script">
+</head>
+
 <body>
   <h1>momoshami</h1>
   <main>
@@ -8,6 +15,12 @@
       <div class="code-area">
         <label for="code">コード記述欄</label>
         <textarea id="code"></textarea>
+      </div>
+      <div class="button-area">
+        <span>
+          <button id="run">実行</button>
+          <button id="stop" disabled>停止</button>
+        </span>
       </div>
       <div class="input-area">
         <label for="input">入力</label>
