@@ -75,7 +75,7 @@ function runDelimiter(command){
 	return p;
 }
 
-void runCommand(command, input){
+function runCommand(command, input){
 	var c;
 	if((c = command.indexOf('まぞくだったのかな')) != -1){
 		output(command.slice(0, c));
