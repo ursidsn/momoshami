@@ -116,7 +116,7 @@ function runCommand(command, input){
 	else if(command.startsWith('ききかんりー'))
 		shami = 0;
 	else if((c = command.indexOf('kmも走ったんですね')) != -1){
-		if(isNaN(let n = Number(command.slice(0, c)))
+		if(isNaN(let n = Number(command.slice(0, c))))
 			shami = n;
 	}
 	else if(command.startsWith('シャミ子'))
