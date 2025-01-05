@@ -1,4 +1,4 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/encoding-japanese/2.0.0/encoding.min.js"></scrpt>
+
 var shami = 0;
 var momo = 27;
 const stack = [];
@@ -149,11 +149,16 @@ void runCommand(command, input){
 			stack.push(1);
 	}
 	else if(command.startsWith('認めませーん'))
-		shami = getchar();
+		shami = input.shift();
 	else if(command.startsWith('まぞくは死にました')){
-		char n[10];
-		fgets(n, 10, stdin);
-		shami = atoi(n);
+		var input_num = [];
+		whlie((let c = input.shift()) != 10)
+			input_num.push(c);
+		shami = Number(Encoding.convert(input_num, {
+			to: 'UTF8',
+			from: 'SJIS',
+			type: 'string'
+		}));
 	}
 	else if(command.startsWith('ぽがー'))
 		output(stack.pop());
@@ -177,13 +182,14 @@ void runCommand(command, input){
 
 export default function interpreter(command, input){
 	var i = 0;
-	var char_input = Encoding.convert(txt, {
+	var input_array = Encoding.convert(input, {
 		to: 'SJIS',
-		from: 'UTF8'
+		from: 'UTF8',
+		type: 'array'
 	});
 	for(p < command.length){
 		if(checkDelimiter(command[p]){
-			runCommand(command.slice(i, p), char_input);
+			runCommand(command.slice(i, p), input_array);
 			p = runDelimiter(command);
 			i = p + 1;
 		}
