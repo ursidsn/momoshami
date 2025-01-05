@@ -1,4 +1,3 @@
-
 var shami = 0;
 var momo = 27;
 const stack = [];
