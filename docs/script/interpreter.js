@@ -186,7 +186,7 @@ export default function interpreter(command, input){
 		from: 'UTF8',
 		type: 'array'
 	});
-	for(p < command.length){
+	while(p < command.length){
 		if(checkDelimiter(command[p]){
 			runCommand(command.slice(i, p), input_array);
 			p = runDelimiter(command);
