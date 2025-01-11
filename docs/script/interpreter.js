@@ -187,7 +187,7 @@ export default function interpreter(command, input){
 		type: 'array'
 	});
 	while(p < command.length){
-		if(checkDelimiter(command[p]){
+		if(checkDelimiter(command[p])){
 			runCommand(command.slice(i, p), input_array);
 			p = runDelimiter(command);
 			i = p + 1;
