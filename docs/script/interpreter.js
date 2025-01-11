@@ -150,7 +150,8 @@ function runCommand(command, input){
 		shami = input.shift();
 	else if(command.startsWith('まぞくは死にました')){
 		var input_num = [];
-		whlie((let c = input.shift()) != 10)
+		let c;
+		whlie((c = input.shift()) != 10)
 			input_num.push(c);
 		shami = Number(Encoding.convert(input_num, {
 			to: 'UTF8',
