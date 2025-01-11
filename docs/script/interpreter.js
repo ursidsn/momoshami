@@ -116,7 +116,8 @@ function runCommand(command, input){
 	else if(command.startsWith('ききかんりー'))
 		shami = 0;
 	else if((c = command.indexOf('kmも走ったんですね')) != -1){
-		if(isNaN(let n = Number(command.slice(0, c))))
+		let n = Number(command.slice(0, c))
+		if(!isNaN(n))
 			shami = n;
 	}
 	else if(command.startsWith('シャミ子'))
@@ -136,10 +137,8 @@ function runCommand(command, input){
 			stack.push(1);
 	}
 	else if(command.startsWith('この携帯の番号いくつ')){
-		if(shami < momo)
-			stack.push(0);
-		else
-			stack.push(1);
+		output("\nshami: " + shami);
+		output("\nmomo: " + momo);
 	}
 	else if(command.startsWith('やる気あるのかな')){
 		if(!stack.length)
