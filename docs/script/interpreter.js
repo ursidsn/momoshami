@@ -194,4 +194,5 @@ export default function interpreter(command, input){
 		}
 		++p;
 	}
+	return result;
 }
