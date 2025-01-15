@@ -6,6 +6,6 @@ const runButton = document.querySelector("#run");
 const stopButton = document.querySelector("#stop");
 
 runButton.addEventListener("click", _ => {
-    output = run(codeArea.value, inputArea.value);
+    let output = run(codeArea.value, inputArea.value);
     outputArea.value = output;
 });
