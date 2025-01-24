@@ -1,11 +1,16 @@
 var shami = 0;
 var momo = 27;
 const stack = [];
-var result;
+var result = "";
 var p = 0;
 
 function output(text){
-	result += output;
+	result += text;
+}
+
+function error(text){
+	p = Number.MAX_SAFE_INTEGER;
+	output("\n\n--ERROR--\n" + text);
 }
 
 function jump(start, end, command){
@@ -70,7 +75,7 @@ function runDelimiter(command){
 			back('/', '?', command);
 			break;
 		default:
-			return 0;
+			error("不正な区切り文字です");
 	}
 	return p;
 }
