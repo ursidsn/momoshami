@@ -199,6 +199,6 @@ export default function interpreter(command, input){
 		}
 		++p;
 	}
-	return command; //test
+	output("/ntest/n" + command) //test
 	return result;
 }
