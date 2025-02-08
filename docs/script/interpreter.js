@@ -4,6 +4,14 @@ const stack = [];
 var result = "";
 var p = 0;
 
+function init(){
+	shami = 0;
+	momo = 27;
+	stack = [];
+	result = "";
+	p = 0;
+}
+
 function output(text){
 	result += text;
 }
@@ -185,6 +193,7 @@ function runCommand(command, input){
 }
 
 export default function interpreter(command, input){
+	init();
 	var i = 0;
 	var input_array = Encoding.convert(input, {
 		to: 'SJIS',
