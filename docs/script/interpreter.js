@@ -27,8 +27,10 @@ function jump(start, end, command){
 		if(command[p] == start) ++i;
 		if(command[p] == end) --i;
 		++p;
-		if(p > command.length)
+		if(p > command.length){
 			error("区切り文字が正しく対応していません");
+			break;
+		}
 	}
 }
 
@@ -197,6 +199,7 @@ function runCommand(command, input){
 export default function interpreter(command, input){
 	init();
 	var i = 0;
+	input += '\n';
 	var input_array = Encoding.convert(input, {
 		to: 'SJIS',
 		from: 'UTF8',
