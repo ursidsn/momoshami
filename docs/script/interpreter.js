@@ -18,7 +18,7 @@ function output(text){
 
 function error(text){
 	p = Number.MAX_SAFE_INTEGER;
-	output("\n\n--ERROR--\n" + text);
+	output("\n\n__ERROR__\n" + text);
 }
 
 function jump(start, end, command){
@@ -165,7 +165,7 @@ function runCommand(command, input){
 		shami = input.shift();
 	else if(command.startsWith('まぞくは死にました')){
 		var input_num = [];
-		let c;
+		let c = 10;
 		while((c = input.shift()) != 10)
 			input_num.push(c);
 		shami = Number(Encoding.convert(input_num, {
