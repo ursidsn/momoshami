@@ -27,6 +27,8 @@ function jump(start, end, command){
 		if(command[p] == start) ++i;
 		if(command[p] == end) --i;
 		++p;
+		if(p > command.length)
+			error("区切り文字が正しく対応していません");
 	}
 }
 
@@ -164,8 +166,9 @@ function runCommand(command, input){
 	else if(command.startsWith('まぞくは死にました')){
 		var input_num = [];
 		let c;
-		whlie((c = input.shift()) != 10)
+		whlie((c = input.shift()) != 10){
 			input_num.push(c);
+		}
 		shami = Number(Encoding.convert(input_num, {
 			to: 'UTF8',
 			from: 'SJIS',
@@ -208,6 +211,5 @@ export default function interpreter(command, input){
 		}
 		++p;
 	}
-	output("/ntest/n" + command) //test
 	return result;
 }
