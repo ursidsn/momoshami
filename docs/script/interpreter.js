@@ -166,9 +166,8 @@ function runCommand(command, input){
 	else if(command.startsWith('まぞくは死にました')){
 		var input_num = [];
 		let c;
-		whlie((c = input.shift()) != 10){
+		while((c = input.shift()) != 10)
 			input_num.push(c);
-		}
 		shami = Number(Encoding.convert(input_num, {
 			to: 'UTF8',
 			from: 'SJIS',
