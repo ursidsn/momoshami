@@ -7,7 +7,7 @@ var p = 0;
 function init(){
 	shami = 0;
 	momo = 27;
-	stack = [];
+	stack.splice(0);
 	result = "";
 	p = 0;
 }
