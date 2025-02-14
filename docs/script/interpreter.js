@@ -199,7 +199,7 @@ function runCommand(command, input){
 export default function interpreter(command, input){
 	init();
 	var i = 0;
-	input += '\n';
+	//input += '\n';
 	var input_array = Encoding.convert(input, {
 		to: 'SJIS',
 		from: 'UTF8',
