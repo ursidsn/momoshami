@@ -199,7 +199,9 @@ function runCommand(command, input){
 export default function interpreter(command, input){
 	init();
 	var i = 0;
-	//input += '\n';
+	if (command.indexOf('!') == -1)
+		error("プログラム終了の区切り文字！が存在しません") //区切り文字がないプログラムは動かないので、終了命令を必須とすることで対策
+	input += '\n';
 	var input_array = Encoding.convert(input, {
 		to: 'SJIS',
 		from: 'UTF8',
