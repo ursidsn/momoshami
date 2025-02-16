@@ -18,11 +18,19 @@ function output(text){
 
 function error(text){
 	p = Number.MAX_SAFE_INTEGER;
-	output("\n\n__ERROR__\n" + text);
+	output("\n__ERROR__\n" + text);
+}
+
+function pop(){
+	var n = stack.pop();
+	if (n === undefined)
+		error("空のスタックをpopしようとしました");
+	return n;
 }
 
 function jump(start, end, command){
 	var i = 1;
+	if (pop() != 0) return;
 	while(i > 0){
 		++p;
 		if(command[p] == start) ++i;
@@ -36,10 +44,14 @@ function jump(start, end, command){
 
 function back(start, end, command){
 	var i = i;
+	if (pop() != 0) return;
 	while(i > 0){
 		--p;
 		if(command[p] == start) ++i;
 		if(command[p] == end) --i;
+		if(p < 0){
+			error("区切り文字が正しく対応していません");
+			break;
 	}
 }
 
@@ -177,30 +189,31 @@ function runCommand(command, input){
 		}));
 	}
 	else if(command.startsWith('ぽがー'))
-		output(stack.pop());
+		output(pop());
 	else if(command.startsWith('おぼえてろー'))
-		output(stack.pop().fromCharCode(asciiCode));
+		output(pop().fromCharCode(asciiCode));
 	else if(command.startsWith('ごめんなさいでした')){
 		while(stack.length)
-			output(stack.pop() + '\n');
+			output(pop() + '\n');
 	}
 	else if(command.startsWith('これで勝ったと思うなよー')){
 		while(stack.length)
-			output(stack.pop().fromCharCode(asciiCode));
+			output(pop().fromCharCode(asciiCode));
 	}
 	else if(command.startsWith('筋肉をつけよう'))
-		shami = stack.pop();
+		shami = pop();
 	else if(command.startsWith('諦めるな'))
-		stack.push(-stack.pop());
+		stack.push(-pop());
 	else if(command.startsWith('…'))
-		stack.push(!stack.pop());
+		if (pop() == 0) stack.push(1);
+		else stack.push(0);
 }
 
 export default function interpreter(command, input){
 	init();
 	var i = 0;
 	if (command.indexOf('!') == -1)
-		error("プログラム終了の区切り文字！が存在しません") //区切り文字がないプログラムは動かないので、終了命令を必須とすることで対策
+		error("プログラム終了の区切り文字！が存在しません"); //区切り文字がないプログラムは動かないので、終了命令を必須とすることで対策
 	input += '\n';
 	var input_array = Encoding.convert(input, {
 		to: 'SJIS',
