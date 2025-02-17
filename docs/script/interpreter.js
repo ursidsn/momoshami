@@ -52,6 +52,7 @@ function back(start, end, command){
 		if(p < 0){
 			error("区切り文字が正しく対応していません");
 			break;
+		}
 	}
 }
 
