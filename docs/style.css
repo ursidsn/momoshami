@@ -108,7 +108,7 @@ textarea[disabled] {
 
 /* 詳細エリア */
 .details-container {
-  text-align: center;
+  text-align: start;
   background: #fff;
   padding: 1rem;
   border-radius: 5px;
