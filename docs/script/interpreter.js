@@ -44,7 +44,6 @@ function jump(start, end, command){
 
 function back(start, end, command){
 	var i = i;
-	if (pop() != 0) return;
 	while(i > 0){
 		--p;
 		if(command[p] == start) ++i;
