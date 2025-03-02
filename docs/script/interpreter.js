@@ -45,9 +45,9 @@ function jump(start, end, command){
 function back(start, end, command){
 	var i = 1;
 	while(i > 0){
-		--p;
 		if(command[p] == start) ++i;
 		if(command[p] == end) --i;
+		--p;
 		if(p < 0){
 			error("区切り文字が正しく対応していません");
 			break;
