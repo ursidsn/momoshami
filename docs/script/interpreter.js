@@ -43,7 +43,7 @@ function jump(start, end, command){
 }
 
 function back(start, end, command){
-	var i = i;
+	var i = 1;
 	while(i > 0){
 		--p;
 		if(command[p] == start) ++i;
