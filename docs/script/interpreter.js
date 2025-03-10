@@ -40,6 +40,7 @@ function jump(start, end, command){
 			break;
 		}
 	}
+	++p;
 }
 
 function back(start, end, command){
@@ -53,7 +54,6 @@ function back(start, end, command){
 			break;
 		}
 	}
-	++p;
 }
 
 function checkDelimiter(c){
