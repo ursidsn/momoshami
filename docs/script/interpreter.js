@@ -40,7 +40,6 @@ function jump(start, end, command){
 			break;
 		}
 	}
-	++p;
 }
 
 function back(start, end, command){
@@ -49,11 +48,12 @@ function back(start, end, command){
 		--p;
 		if(command[p] == start) ++i;
 		if(command[p] == end) --i;
-		if(p < 0){
+		if(p <= 0){ //プログラムの最初の文字が?（while文開始）にはなりえない
 			error("区切り文字が正しく対応していません");
 			break;
 		}
 	}
+	--p;
 }
 
 function checkDelimiter(c){
