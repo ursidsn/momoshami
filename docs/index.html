@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <script src="encoding.js"></script>
+  <title>momoshami-まちカドまぞくのプログラミング言語</title>
+  <script src="script/main.js" type="module"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="script/interpreter.js" as="script" type="application/javascript" crossorigin>
+</head>
+
+<body>
+  <h1>momoshami</h1>
+  <main>
+    <div class="grid-container">
+      <div class="code-area">
+        <label for="code">コード記述欄</label>
+        <textarea id="code"></textarea>
+      </div>
+      <div class="button-area">
+        <span>
+          <button id="run">実行</button>
+          <button id="stop" disabled>クリア</button>
+        </span>
+      </div>
+      <div class="input-area">
+        <label for="input">入力</label>
+        <textarea id="input"></textarea>
+      </div>
+      <div class="output-area">
+        <label for="output">出力</label>
+        <textarea id="output" disabled></textarea>
+      </div>
+    </div>
+  </main>
+  <div class="details-container">
+    <p>まちカドまぞくのシャミ子と桃のセリフでコードが書けるプログラミング言語「momoshami」のWebコンパイラです。</p>
+    <a href="https://github.com/ursidsn/momoshami">言語仕様</a>
+    <p>このページ限定で使える命令「この携帯の番号いくつ」も用意しました。デバッグに使うことを想定したコマンドで、現在の変数の値を表示できます。</p>
+    <details>
+      <summary>サンプルプログラム</summary>
+      <h3>Hello World!</h3>
+      <p>Helloまぞくだったのかな<br>
+      そこは引っかからなくていい<br>
+      Worldまぞくだったのかな<br>
+      みんなが仲良くなりますように!</p>
+      <h3>FizzBuzz</h3>
+      <p>,ききかんりー シャミ子,桃?<br>
+      20kmも走ったんですね なんか違くないですか.<br>
+      3kmも走ったんですね,シャドウミストレスさん<br>
+      …(Fizzまぞくだったのかな),<br>
+      5kmも走ったんですね,シャドウミストレスさん<br>
+      …(Buzzまぞくだったのかな),<br>
+      3kmも走ったんですね,シャドウミストレスさん<br>
+      (,5kmも走ったんですね,シャドウミストレスさん<br>
+      (,ききかんりー 桃 ぽがー,))おそろがいい<br>
+      シャミ子,ききかんりー 桃/!</p>
+    </details>
+  </div>
+</body>
+</html>
